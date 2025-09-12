@@ -1,0 +1,60 @@
+trading:
+  # Risk Management
+  max_positions: 5
+  max_loss_per_session: 500.0
+  max_order_size: 1000.0
+  cooldown_seconds: 60
+  
+  # Position Sizing
+  position_sizing_mode: "fixed_risk"  # fixed_risk, fractional
+  fixed_risk_amount: 100.0
+  fractional_risk: 0.02
+  
+  # Stop Loss / Take Profit
+  default_stop_loss_pct: 0.02
+  default_take_profit_pct: 0.04
+  
+  # Whitelisted symbols
+  allowed_symbols:
+    - "BTCUSD"
+    - "ETHUSD" 
+    - "LTCUSD"
+    - "ADAUSD"
+    - "DOTUSD"
+
+strategies:
+  trend:
+    enabled: true
+    params:
+      sma_short: 10
+      sma_long: 30
+      rsi_period: 14
+      rsi_overbought: 70
+      rsi_oversold: 30
+      
+  mean_reversion:
+    enabled: true
+    params:
+      bollinger_period: 20
+      bollinger_std: 2
+      rsi_period: 14
+      rsi_oversold: 30
+      rsi_overbought: 70
+      
+  breakout:
+    enabled: true
+    params:
+      lookback_period: 20
+      volume_threshold: 1.5
+      breakout_threshold: 0.005
+
+session:
+  # Session defaults
+  default_allocation: 1000.0
+  session_timeout_hours: 8
+  auto_end_on_max_loss: true
+  
+data:
+  # Price data settings
+  price_update_interval_ms: 1000
+  retain_bars_days: 30

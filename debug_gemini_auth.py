@@ -13,7 +13,7 @@ from app.core.config import settings
 def debug_gemini_auth():
     print("Debugging Gemini Authentication...")
     print(f"API Key: {settings.GEMINI_API_KEY}")
-    print(f"API Secret: {settings.GEMINI_API_SECRET}")
+    print("API Secret: ***redacted***")
     
     # Test the auth signature generation
     endpoint = "/v1/balances"
